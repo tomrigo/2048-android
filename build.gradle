@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.4.0'
     }
 }
 
@@ -30,6 +30,7 @@ android {
         targetSdkVersion 28
         versionCode 25
         versionName "2.2"
+        testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     sourceSets {
@@ -64,4 +65,8 @@ android {
 
 dependencies {
     implementation 'de.cketti.library.changelog:ckchangelog-legacy-dialog:2.0.0-SNAPSHOT'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
 }
